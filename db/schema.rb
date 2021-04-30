@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 2021_04_30_195739) do
 
   create_table "favourites", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "surfboard_id", null: false
+    t.integer "favouriteable_id"
+    t.string "favouriteable_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["surfboard_id"], name: "index_favourites_on_surfboard_id"
     t.index ["user_id"], name: "index_favourites_on_user_id"
   end
 
@@ -42,6 +42,5 @@ ActiveRecord::Schema.define(version: 2021_04_30_195739) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "favourites", "surfboards"
   add_foreign_key "favourites", "users"
 end
