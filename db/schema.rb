@@ -10,26 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_30_114957) do
+ActiveRecord::Schema.define(version: 2021_04_30_114948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "accesories", force: :cascade do |t|
-    t.string "category"
-    t.string "model"
-    t.string "brand"
-    t.integer "price"
-    t.string "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "surfboards", force: :cascade do |t|
     t.string "model"
-    t.integer "price"
+    t.decimal "price", precision: 6, scale: 2
     t.string "brand"
-    t.string "description"
+    t.text "description"
+    t.string "image_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -37,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_04_30_114957) do
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
+    t.boolean "is_admin", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
