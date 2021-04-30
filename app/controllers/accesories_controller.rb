@@ -1,0 +1,2 @@
+class AccesoriesController < ApplicationController
+end
