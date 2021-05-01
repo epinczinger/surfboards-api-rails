@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.0'
 gem 'api_guard'
 gem 'hirb'
+gem 'rack-cors'
 gem 'rubocop', '>= 1.0', '< 2.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.6'
