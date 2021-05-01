@@ -43,6 +43,25 @@ class AccesoriesController < ApplicationController
     end
   end
 
+  def destroy
+    begin
+      @accesory = Accesory.all.find(params[:id])
+      @to_destroy = Favourite.find_by(favouriteable_id: params[:id],favouriteable_type: "Accesory")
+      if @to_destroy != nil
+        @to_destroy.destroy
+      end
+      @accesory.destroy
+      respond_to do |format|
+        format.json { render :json => { result: "Accesory deleted" } }
+      end
+    rescue => exception
+      respond_to do |format|
+        e = { result: "You may not be allowed, or something happened." }
+        format.json { render :json => e }
+      end
+    end
+  end
+
   private
 
   def accesory_params
