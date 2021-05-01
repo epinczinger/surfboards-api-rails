@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '3.0.0'
 gem 'api_guard'
 gem 'hirb'
 gem 'rubocop', '>= 1.0', '< 2.0'
