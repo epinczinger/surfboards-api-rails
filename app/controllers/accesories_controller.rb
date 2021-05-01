@@ -1,6 +1,6 @@
 class AccesoriesController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :authenticate_and_set_user, except: [:index, :show]
+  before_action :authenticate_and_set_user, except: %i[index show]
   before_action :require_admin, only: %i[destroy create update]
 
   def index
@@ -16,50 +16,44 @@ class AccesoriesController < ApplicationController
     respond_to do |format|
       format.json { render json: @accesory }
     end
-  rescue StandardError => error
+  rescue StandardError => e
     respond_to do |format|
-      error = { result: 'Not found or not allowed.' }
-      format.json { render :json => error }
+      e = { result: 'Not found or not allowed.' }
+      format.json { render json: e }
     end
   end
 
   def create
-    begin
-      @user = current_user
-      @new_accesory = @user.accesories.new(accesory_params)
-      @new_accesory.save
+    @user = current_user
+    @new_accesory = @user.accesories.new(accesory_params)
+    @new_accesory.save
 
-      respond_to do |format|
-        format.json {
-          render :json => {
-            result: "Accesory created."
-          }
+    respond_to do |format|
+      format.json do
+        render json: {
+          result: 'Accesory created.'
         }
       end
-    rescue => exception
-      respond_to do |format|
-        e = { result: "Error when creating." }
-        format.json { render :json => e }
-      end
+    end
+  rescue StandardError => e
+    respond_to do |format|
+      e = { result: 'Error when creating.' }
+      format.json { render json: e }
     end
   end
 
   def destroy
-    begin
-      @accesory = Accesory.all.find(params[:id])
-      @to_destroy = Favourite.find_by(favouriteable_id: params[:id], favouriteable_type: "Accesory")
-      if @to_destroy != nil
-        @to_destroy.destroy
-      end
-      @accesory.destroy
-      respond_to do |format|
-        format.json { render :json => { result: "Accesory deleted" } }
-      end
-    rescue => exception
-      respond_to do |format|
-        e = { result: "You may not be allowed, or something happened." }
-        format.json { render :json => e }
-      end
+    @accesory = Accesory.all.find(params[:id])
+    @to_destroy = Favourite.find_by(favouriteable_id: params[:id], favouriteable_type: 'Accesory')
+    @to_destroy&.destroy
+    @accesory.destroy
+    respond_to do |format|
+      format.json { render json: { result: 'Accesory deleted' } }
+    end
+  rescue StandardError => e
+    respond_to do |format|
+      e = { result: 'You may not be allowed, or something happened.' }
+      format.json { render json: e }
     end
   end
 
