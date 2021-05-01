@@ -1,6 +1,6 @@
 class AccesoriesController < ApplicationController
-  before_action :authenticate_and_set_user
   skip_before_action :verify_authenticity_token
+  before_action :authenticate_and_set_user
   before_action :require_admin, only: %i[destroy create update]
 
   def index
@@ -46,7 +46,7 @@ class AccesoriesController < ApplicationController
   def destroy
     begin
       @accesory = Accesory.all.find(params[:id])
-      @to_destroy = Favourite.find_by(favouriteable_id: params[:id],favouriteable_type: "Accesory")
+      @to_destroy = Favourite.find_by(favouriteable_id: params[:id], favouriteable_type: "Accesory")
       if @to_destroy != nil
         @to_destroy.destroy
       end
