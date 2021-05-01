@@ -23,6 +23,46 @@ class SurfboardsController < ApplicationController
     end
   end
 
+  def create
+    begin
+      @user = current_user
+      @new_surfboard = @user.surfboards.new(surfboard_params)
+      @new_surfboard.save
+
+      respond_to do |format|
+        format.json {
+          render :json => {
+            result: "Surfboard created."
+          }
+        }
+      end
+    rescue => exception
+      respond_to do |format|
+        e = { result: "Error when creating." }
+        format.json { render :json => e }
+      end
+    end
+  end
+
+  def destroy
+    begin
+      @surfboard = Surfboard.all.find(params[:id])
+      @to_destroy = Favourite.find_by(favouriteable_id: params[:id], favouriteable_type: "Surfboard")
+      if @to_destroy != nil
+        @to_destroy.destroy
+      end
+      @surfboard.destroy
+      respond_to do |format|
+        format.json { render :json => { result: "Surfboard deleted"}}
+      end
+    rescue => exception
+      respond_to do |format|
+        e = { result: "You may not be allowed, or something happened." }
+        format.json { render :json => e }
+      end
+    end
+  end
+
   private
 
   def surfboard_params
