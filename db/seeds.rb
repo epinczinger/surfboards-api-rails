@@ -22,16 +22,15 @@ surfboards = [{model: "Scorpion", brand: "CR Surfboards", price: 648, descriptio
 ]
 
 accesories = [
-{model: "Hook", brand: "Rip Curl", price: 48, description: "Stay warm with this hook for cold water.", image_url: ""},
-{model: "Gloves", brand: "Rip Curl", price: 36, description: "Stay warm with this gloves for cold water.", image_url: ""},
-{model: "Wax", brand: "Sticky", price: 8.4, description: "Remain sticky with sticky wax.", image_url: ""},
-{model: "Leash 6ft", brand: "FCS", price: 34, description: "Leash yourself to the board, you'll never lose it.", image_url: ""},
-{model: "Grip", brand: "Creature", price: 60, description: "Best grip ever, used by pro-surfers.", image_url: ""},
-{model: "Hook", brand: "Rip Curl", price: 48, description: "Stay warm with this hook for cold water.", image_url: ""},
-{model: "Gloves", brand: "Rip Curl", price: 36, description: "Stay warm with this gloves for cold water.", image_url: ""},
-{model: "Wax", brand: "Sticky", price: 8.4, description: "Remain sticky with sticky wax.", image_url: ""},
-{model: "Leash 6ft", brand: "FCS", price: 34, description: "Leash yourself to the board, you'll never lose it.", image_url: ""},
-{model: "Grip", brand: "Creature", price: 60, description: "Best grip ever, used by pro-surfers.", image_url: ""}]
+{model: "Fins", brand: "Fcs II", price: 48, description: "Designed by Firewire and now constructed with a carbon tissue insert to offer more flex and a smoother feel compared to the original ultra-stiff bamboo version.", image_url: "https://cdn.shopify.com/s/files/1/0399/4923/8317/products/FCS_FW_M__91440.1587010059.1280.1280.jpg?v=1618944837"},
+{model: "Hoodie", brand: "Slater Designs", price: 55, description: "Slater Designs Fleece Hoodie | Light weight  | Front zipper | Form Fitted | Cotton | Made In the USA.", image_url: "https://cdn.shopify.com/s/files/1/0399/4923/8317/products/S21FLC0002BLA_Front.jpg?v=1611101912"},
+{model: "Leash 6ft", brand: "FCS", price: 34, description: "Leash yourself to the board, you'll never lose it.", image_url: "https://cdn.shopify.com/s/files/1/0399/4923/8317/products/6Reg_660x500__29905.1543454487.1280.1280.jpg?v=1618944849"},
+{model: "Grip", brand: "Creature", price: 60, description: "Best grip ever, used by pro-surfers.", image_url: "https://cdn.shopify.com/s/files/1/0399/4923/8317/products/machado_3_piece_arch_black.jpg?v=1618944849"},
+{model: "Fins", brand: "Fcs II", price: 48, description: "Designed by Firewire and now constructed with a carbon tissue insert to offer more flex and a smoother feel compared to the original ultra-stiff bamboo version.", image_url: "https://cdn.shopify.com/s/files/1/0399/4923/8317/products/FCS_FW_M__91440.1587010059.1280.1280.jpg?v=1618944837"},
+{model: "Hoodie", brand: "Slater Designs", price: 36, description: "Slater Designs Fleece Hoodie | Light weight  | Front zipper | Form Fitted | Cotton | Made In the USA.", image_url: "https://cdn.shopify.com/s/files/1/0399/4923/8317/products/S21FLC0002BLA_Front.jpg?v=1611101912"},
+{model: "Board Bag", brand: "Prolite", price: 8.4, description: "Take care of your surfboards with this great board bag.", image_url: "https://cdn.shopify.com/s/files/1/0399/4923/8317/products/BBSE04__32965.1589412411.1280.1280.jpg?v=1618945973"},
+{model: "Leash 6ft", brand: "FCS", price: 34, description: "Leash yourself to the board, you'll never lose it.", image_url: "https://cdn.shopify.com/s/files/1/0399/4923/8317/products/6Reg_660x500__29905.1543454487.1280.1280.jpg?v=1618944849"},
+{model: "Grip", brand: "Creature", price: 60, description: "Best grip ever, used by pro-surfers.", image_url: "https://cdn.shopify.com/s/files/1/0399/4923/8317/products/machado_3_piece_arch_black.jpg?v=1618944849"}]
 
 surfboards.each do |surfboard|
     Surfboard.create(surfboard)
