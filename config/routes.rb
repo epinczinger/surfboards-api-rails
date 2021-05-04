@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   api_guard_routes for: 'users'
   resources :surfboards
   resources :accesories
+  resource :favourites, only: [:create, :destroy]
+  get '/favourites', to: 'favourites#index'
   
 end
