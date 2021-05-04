@@ -3,9 +3,10 @@ class FavouritesController < ApplicationController
   before_action :authenticate_and_set_user
 
   def index
-    @favourites = current_user.FavouritesController
+    @surfboards = current_user.surfboards
+    @accesories = current_user.accesories
     respond_to do |format|
-      format.json { render json: @favourites }
+      format.json { render json: @accesories.to_json+@surfboards.to_json}
     end
   end
 
