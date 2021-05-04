@@ -6,7 +6,7 @@ class FavouritesController < ApplicationController
     @surfboards = current_user.surfboards
     @accesories = current_user.accesories
     respond_to do |format|
-      format.json { render json: @accesories.to_json+@surfboards.to_json}
+      format.json { render json: @accesories.to_json + @surfboards.to_json }
     end
   end
 

@@ -39,3 +39,9 @@ end
 accesories.each do |accesory|
     Accesory.create(accesory)
 end
+
+User.first.favourites.create(favouriteable_id: 2, favouriteable_type:"Surfboard")
+User.first.favourites.create(favouriteable_id: 6, favouriteable_type:"Surfboard")
+User.first.favourites.create(favouriteable_id: 1, favouriteable_type:"Accesory")
+User.first.favourites.create(favouriteable_id: 7, favouriteable_type:"Accesory")
+User.first.favourites.create(favouriteable_id: 5, favouriteable_type:"Accesory")
