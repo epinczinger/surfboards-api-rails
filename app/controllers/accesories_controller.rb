@@ -60,6 +60,6 @@ class AccesoriesController < ApplicationController
   private
 
   def accesory_params
-    params.require(:accesory).permit(:model, :brand, :description, :price)
+    params.require(:accesory).permit(:model, :brand, :description, :price, :image_url)
   end
 end
