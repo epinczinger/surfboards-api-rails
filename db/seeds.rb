@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(email: 'user@mail.com', password: '123123')
 User.create(email: 'admin@mail.com', password: '123123', is_admin: true)
@@ -34,8 +27,8 @@ products.each do |product|
     Product.create(product)
 end
 
-# User.first.favourites.create(favouriteable_id: 2, favouriteable_type:"Surfboard")
-# User.first.favourites.create(favouriteable_id: 6, favouriteable_type:"Surfboard")
-# User.first.favourites.create(favouriteable_id: 1, favouriteable_type:"Accesory")
-# User.first.favourites.create(favouriteable_id: 7, favouriteable_type:"Accesory")
-# User.first.favourites.create(favouriteable_id: 5, favouriteable_type:"Accesory")
+User.first.favourites.create(product_id: 2)
+User.first.favourites.create(product_id: 6)
+User.first.favourites.create(product_id: 1)
+User.first.favourites.create(product_id: 7)
+User.first.favourites.create(product_id: 5)
