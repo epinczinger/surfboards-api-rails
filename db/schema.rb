@@ -10,40 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_05_020234) do
+ActiveRecord::Schema.define(version: 2021_05_06_210041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "accesories", force: :cascade do |t|
-    t.text "description"
-    t.decimal "price"
-    t.string "model"
-    t.string "brand"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "image_url"
-    t.string "kind", default: "accesories"
-  end
-
   create_table "favourites", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.integer "favouriteable_id"
-    t.string "favouriteable_type"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "product_id", null: false
+    t.index ["product_id"], name: "index_favourites_on_product_id"
     t.index ["user_id"], name: "index_favourites_on_user_id"
   end
 
-  create_table "surfboards", force: :cascade do |t|
-    t.string "model"
+  create_table "products", force: :cascade do |t|
     t.decimal "price", precision: 6, scale: 2
+    t.string "model"
     t.string "brand"
     t.text "description"
     t.string "image_url"
+    t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "kind", default: "surfboards"
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,5 +41,6 @@ ActiveRecord::Schema.define(version: 2021_05_05_020234) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "favourites", "products"
   add_foreign_key "favourites", "users"
 end
