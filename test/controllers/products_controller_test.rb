@@ -20,5 +20,4 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     get products_delete_url
     assert_response :success
   end
-
 end
