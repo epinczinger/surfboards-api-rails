@@ -3,10 +3,9 @@ class FavouritesController < ApplicationController
   before_action :authenticate_and_set_user
 
   def index
-    @surfboards = current_user.surfboards
-    @accesories = current_user.accesories
+    @favourites = current_user.liked_products.all
     respond_to do |format|
-      format.json { render json: @current_user.to_json(:include => [:accesories, :surfboards]) }
+      format.json { render json: @favourites }
     end
   end
 
