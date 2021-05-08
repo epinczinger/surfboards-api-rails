@@ -3,14 +3,14 @@ class FavouritesController < ApplicationController
   before_action :authenticate_and_set_user
 
   def index
-    @favourites = current_user.liked_products.all
+    @favourites = current_user.liked_products.all 
     respond_to do |format|
       format.json { render json: @favourites }
     end
   end
 
   def create
-    @favourite = current_user.favourites.new(product_id: params[:id])
+    @favourite = current_user.favourites.new(favourite_params)
 
     @favourite.save
     render json: { result: "Favourite created." }
