@@ -9,6 +9,10 @@ The repo for the client app can be accessed [here](https://github.com/epinczinge
 
 [ Client App](https://surfshop-rails-react.netlify.app/)
 
+## Video Explanation
+
+[I explain you the code here](https://youtu.be/WlV-_4Wjuc0)
+
 ## Built With
 
 - Ruby v2.7.2
