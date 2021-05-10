@@ -13,7 +13,7 @@ class FavouritesController < ApplicationController
     @favourite = current_user.favourites.new(favourite_params)
 
     @favourite.save
-    render json: { result: "Favourite created." }
+    render json: { result: 'Favourite created.' }
   rescue StandardError
     render json: { result: 'Error when adding favourite.' }
   end
@@ -21,9 +21,9 @@ class FavouritesController < ApplicationController
   def destroy
     @to_destroy = current_user.favourites.find_by(favourite_params)
     @to_destroy.destroy
-    render json: { result: "Favourite deleted." }
+    render json: { result: 'Favourite deleted.' }
   rescue StandardError
-    render json: { result: "Error when deleting." }
+    render json: { result: 'Error when deleting.' }
   end
 
   private

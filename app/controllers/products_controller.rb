@@ -16,17 +16,17 @@ class ProductsController < ApplicationController
   def create
     @new_product = Product.new(product_params)
     @new_product.save
-    render json: { result: "Product Created." }
+    render json: { result: 'Product Created.' }
   rescue StandardError
-    render json: { result: "Error when creating." }
+    render json: { result: 'Error when creating.' }
   end
 
   def destroy
     @to_destroy = Product.find(params[:id])
     @to_destroy.destroy
-    render json: { result: "Product deleted" }
+    render json: { result: 'Product deleted' }
   rescue StandardError
-    render json: { result: "Error when deleting" }
+    render json: { result: 'Error when deleting' }
   end
 
   private
