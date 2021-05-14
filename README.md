@@ -108,6 +108,7 @@ Enjoy your newly deployed rails API
 
 - Github: [epinczinger](https://github.com/epinczinger)
 - LinkedIn: [Esteban Pinczinger](https://www.linkedin.com/in/esteban-pinczinger)
+- Twitter: [@breakingcode1](https://www.twitter.com/breakingcode1)
 
 ## 🤝 Contributing
 
