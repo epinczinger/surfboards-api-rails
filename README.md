@@ -26,11 +26,10 @@ The API will expose the following RESTful endpoints.
 
 | Endpoint                | Functionality                |
 |-------------------------|------------------------------|
-| POST /users/sign_up     | Sign up                      |
+| POST /users/sign_up     | Sign up / Creates a user     |
 | POST /users/sign_in     | Sign in                      |
 | DELETE /users/sign_out  | Sign out                     |
 | DELETE /user/:id        | Delete a user                |
-| POST /user/:id          | Create a user                |
 | GET /products           | List all products            |
 | POST /products          | Add a new product            |
 | DELETE /products/:id    | Delete a product             |
